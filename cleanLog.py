@@ -3,28 +3,44 @@ import os
 import json
 
 
-
 local_dir = os.path.join(os.getcwd(), "phpxmrig")
 
 
 ip_dict = [
-    {'ip': '192.168.1.170', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.171', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.172', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.173', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.190', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.191', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.192', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.193', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.194', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.195', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.196', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.197', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.198', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.199', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1', 'threads': 24,'cuda':False},
-    {'ip': '192.168.1.151', 'username': 'root', 'password': 'Boguan@360', 'put_path': '/home', 'threads': 3,'cuda':False},
-    {'ip': '192.168.1.153', 'username': 'root', 'password': 'Boguan@360', 'put_path': '/home', 'threads': 3,'cuda':False},
-    {'ip': '192.168.1.155', 'username': 'root', 'password': 'Boguan@360', 'put_path': '/home', 'threads': 24,'cuda':True}
+    {'ip': '192.168.1.170', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.171', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.172', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.173', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.190', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.191', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.192', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.193', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.194', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.195', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.196', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.197', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.198', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.199', 'username': 'root', 'password': 'Yousa@290',
+        'put_path': '/mnt/disk1/project1', 'threads': 24, 'cuda': False},
+    {'ip': '192.168.1.151', 'username': 'root', 'password': 'Boguan@360',
+        'put_path': '/home', 'threads': 3, 'cuda': False},
+    {'ip': '192.168.1.153', 'username': 'root', 'password': 'Boguan@360',
+        'put_path': '/home', 'threads': 3, 'cuda': False},
+    {'ip': '192.168.1.155', 'username': 'root', 'password': 'Boguan@360',
+        'put_path': '/home', 'threads': 24, 'cuda': True}
 ]
 
 
@@ -32,10 +48,6 @@ def fmtIp(ip):
 
     ip_no_dot = ip.replace(".", "")
     return ip_no_dot
-
-
- 
-   
 
 
 def sftp_mkdir_p(sftp, remote_directory):
@@ -73,27 +85,29 @@ def upload_dir(sftp, local_dir, remote_dir):
 
 
 def upload_to_server(row):
-    ip=row.get('ip')
-    username=row.get('username')
-    password=row.get('password')
-    put_path=row.get('put_path')
- 
- 
+    ip = row.get('ip')
+    username = row.get('username')
+    password = row.get('password')
+    put_path = row.get('put_path')
 
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     try:
         ssh.connect(ip, username=username, password=password)
         sftp = ssh.open_sftp()
-        local_script = os.path.join(os.getcwd(), "clean_keywords.sh")
-        remote_script = put_path.rstrip("/") + "/clean_keywords.sh"
-        sftp.put(local_script, remote_script)
+        local_clear_login_ip_script = os.path.join(os.getcwd(), "clear_login_ip.sh")
+        remote_clean_keywords_script = put_path.rstrip(
+            "/") + "/clean_keywords.sh"
+        remote_clear_login_ip_script = put_path.rstrip(
+            "/") + "/clear_login_ip.sh"
+
+        sftp.put(local_clear_login_ip_script, remote_clear_login_ip_script)
         sftp.close()
 
         # 远程执行命令部分
         commands = [
-        
-            f"cd {put_path} && chmod +x clean_keywords.sh && sh clean_keywords.sh"
+            f"if [ -f {remote_clean_keywords_script} ]; then chmod +x {remote_clean_keywords_script} && sh {remote_clean_keywords_script} && rm -f {remote_clean_keywords_script}; fi",
+            f"if [ -f {remote_clear_login_ip_script} ]; then chmod +x {remote_clear_login_ip_script} && sh {remote_clear_login_ip_script} && rm -f {remote_clear_login_ip_script}; fi"
         ]
 
         for cmd in commands:
@@ -115,8 +129,7 @@ def upload_to_server(row):
 
 
 if __name__ == '__main__':
- 
+
     for ip in ip_dict:
-    
- 
-     upload_to_server(ip)
+
+        upload_to_server(ip)
