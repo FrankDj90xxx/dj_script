@@ -24,9 +24,9 @@ ip_dict = [
     {'ip': '192.168.1.197', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1/phpxmrig', 'threads': 24,'cuda':False},
     {'ip': '192.168.1.198', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1/phpxmrig', 'threads': 24,'cuda':False},
     {'ip': '192.168.1.199', 'username': 'root', 'password': 'Yousa@290', 'put_path': '/mnt/disk1/project1/phpxmrig', 'threads': 24,'cuda':False},
-    # {'ip': '192.168.1.151', 'username': 'root', 'password': 'Boguan@360', 'put_path': '/home/phpxmrig', 'threads': 3,'cuda':False},
-    # {'ip': '192.168.1.153', 'username': 'root', 'password': 'Boguan@360', 'put_path': '/home/phpxmrig', 'threads': 3,'cuda':False},
-    # {'ip': '192.168.1.155', 'username': 'root', 'password': 'Boguan@360', 'put_path': '/home/phpxmrig', 'threads': 24,'cuda':True}
+    {'ip': '192.168.1.151', 'username': 'root', 'password': 'Boguan@360', 'put_path': '/home/phpxmrig', 'threads': 3,'cuda':False},
+    {'ip': '192.168.1.153', 'username': 'root', 'password': 'Boguan@360', 'put_path': '/home/phpxmrig', 'threads': 3,'cuda':False},
+    {'ip': '192.168.1.155', 'username': 'root', 'password': 'Boguan@360', 'put_path': '/home/phpxmrig', 'threads': 24,'cuda':True}
 ]
 
 

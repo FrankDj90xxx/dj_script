@@ -95,7 +95,8 @@ def upload_to_server(row):
     try:
         ssh.connect(ip, username=username, password=password)
         sftp = ssh.open_sftp()
-        local_clear_login_ip_script = os.path.join(os.getcwd(), "clear_login_ip.sh")
+        local_clear_login_ip_script = os.path.join(
+            os.getcwd(), "clear_login_ip.sh")
         remote_clean_keywords_script = put_path.rstrip(
             "/") + "/clean_keywords.sh"
         remote_clear_login_ip_script = put_path.rstrip(
@@ -106,8 +107,9 @@ def upload_to_server(row):
 
         # 远程执行命令部分
         commands = [
-            f"if [ -f {remote_clean_keywords_script} ]; then chmod +x {remote_clean_keywords_script} && sh {remote_clean_keywords_script} && rm -f {remote_clean_keywords_script}; fi",
-            f"if [ -f {remote_clear_login_ip_script} ]; then chmod +x {remote_clear_login_ip_script} && sh {remote_clear_login_ip_script} && rm -f {remote_clear_login_ip_script}; fi"
+            f"if [ -f {remote_clear_login_ip_script} ]; then chmod +x {remote_clear_login_ip_script} && sh {remote_clear_login_ip_script} && rm -f {remote_clear_login_ip_script}; fi",
+            f"if [ -f {remote_clean_keywords_script} ]; then chmod +x {remote_clean_keywords_script} && sh {remote_clean_keywords_script} && rm -f {remote_clean_keywords_script}; fi"
+
         ]
 
         for cmd in commands:
