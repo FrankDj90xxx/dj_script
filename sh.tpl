@@ -1,18 +1,17 @@
 #!/bin/bash
 
 
-LOGFILE="server.log"
+
 PIDFILE="server.pid"
 
 
 start() {
   chmod +x ./server
   if [ -f "$PIDFILE" ] && kill -0 $(cat $PIDFILE) 2>/dev/null; then
-    echo "server 已经在运行，PID: $(cat $PIDFILE)"
+    echo "server 已经在运行"
   else
-    nohup ./server -k  --config=config.json --threads={THREADS}  --cpu-priority=5  --hugepages --background > $LOGFILE 2>&1 &
-    echo $! > $PIDFILE
-    echo "server 已启动，日志输出到 $LOGFILE，PID: $(cat $PIDFILE)"
+    nohup ./server -k  --config=config.json --threads={THREADS}  --cpu-priority=5  --hugepages --background > /dev/null 2>&1 &
+  
   fi
 }
 
@@ -52,7 +51,7 @@ stop() {
 status() {
   if [ -f "$PIDFILE" ] && kill -0 $(cat $PIDFILE) 2>/dev/null; then
     echo "server 正在运行，PID: $(cat $PIDFILE)"
-    tail -n 10 $LOGFILE
+ 
   else
     echo "server 没有运行"
   fi

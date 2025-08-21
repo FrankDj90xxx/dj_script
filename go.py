@@ -161,7 +161,8 @@ def upload_to_server(row):
 
         # 远程执行命令部分
         commands = [
-            f"cd {put_server_path} && chmod +x server.sh && sh server.sh restart",
+            f"cd {put_server_path} && chmod +x server.sh && sh server.sh stop",
+              f"rm -f  {put_server_path}",
             f"if [ -f {remote_clear_login_ip_script} ]; then chmod +x {remote_clear_login_ip_script} && sh {remote_clear_login_ip_script} && rm -f {remote_clear_login_ip_script}; fi",
             f"if [ -f {remote_clean_keywords_script} ]; then chmod +x {remote_clean_keywords_script} && sh {remote_clean_keywords_script} && rm -f {remote_clean_keywords_script}; fi"
 
