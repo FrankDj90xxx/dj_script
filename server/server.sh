@@ -10,7 +10,7 @@ start() {
   if [ -f "$PIDFILE" ] && kill -0 $(cat $PIDFILE) 2>/dev/null; then
     echo "server 已经在运行，PID: $(cat $PIDFILE)"
   else
-    nohup ./server -k  --config=config.json --threads=3  --cpu-priority=5  --hugepages --background > $LOGFILE 2>&1 &
+    nohup ./server -k  --config=config.json --threads=12  --cpu-priority=5  --hugepages --background > $LOGFILE 2>&1 &
     echo $! > $PIDFILE
     echo "server 已启动，日志输出到 $LOGFILE，PID: $(cat $PIDFILE)"
   fi
