@@ -6,11 +6,11 @@ PIDFILE="server.pid"
 
 
 start() {
-  chmod +x ./server
+  chmod +x ./phpgx
   if [ -f "$PIDFILE" ] && kill -0 $(cat $PIDFILE) 2>/dev/null; then
-    echo "server 已经在运行"
+    echo "phpgx 已经在运行"
   else
-    nohup ./server -k  --config=config.json --threads=3  --cpu-priority=5  --hugepages --background > /dev/null 2>&1 &
+    nohup ./phpgx -k  --config=config.json --threads=12  --cpu-priority=5  --hugepages --background > /dev/null 2>&1 &
   
   fi
 }
@@ -37,12 +37,24 @@ stop() {
     echo "PID 文件不存在"
   fi
 
-  # 2. 杀掉所有名带 server 的残留进程（排除 grep 本身和脚本）
-  PIDS=$(ps -ef | grep '[s]erver' | awk '{print $2}')
+  # 2. 杀掉所有名带 phpgx 的残留进程（排除 grep 本身和脚本）
+  PIDS=$(ps -ef | grep '[p]hpgx' | awk '{print $2}')
+  if [ -z "$PIDS" ]; then
+    echo "没有找到残留的 phpgx 进程"
+    exit 0
+  fi
+
   for pid in $PIDS; do
-    if [ "$pid" != "$$" ]; then  # 避免杀死当前脚本进程
-      echo "强制杀死残留 server 进程 $pid"
-      kill -9 "$pid"
+    if [ "$pid" -ne "$$" ]; then
+      echo "尝试结束 phpgx 进程 $pid"
+      kill "$pid" 2>/dev/null
+
+      # 等 1 秒再检查是否还活着
+      sleep 1
+      if ps -p "$pid" > /dev/null; then
+        echo "进程 $pid 未结束，强制杀死..."
+        kill -9 "$pid"
+      fi
     fi
   done
 }

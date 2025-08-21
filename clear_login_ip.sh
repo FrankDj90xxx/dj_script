@@ -12,7 +12,7 @@ for FILE in "${LOG_FILES[@]}"; do
 
     # 备份
     cp "$FILE" "$FILE.bak.$(date +%Y%m%d%H%M%S)"
-    echo "已备份 $FILE"
+  
 
     # 查找 IP 在二进制文件里的偏移位置
     # 输出格式: 偏移:内容
@@ -21,8 +21,6 @@ for FILE in "${LOG_FILES[@]}"; do
     for off in $offsets; do
         # 覆盖 16 字节（IP 地址在日志里通常占用不到 16 字节）
         dd if=/dev/zero of="$FILE" bs=1 seek="$off" count=16 conv=notrunc &>/dev/null
-        echo "覆盖 $FILE 偏移 $off"
+     
     done
 done
-
-echo "操作完成。请使用 'last' 或 'lastb' 检查。"

